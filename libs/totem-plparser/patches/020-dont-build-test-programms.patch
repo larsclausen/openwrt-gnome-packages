@@ -1,0 +1,155 @@
+diff --git a/plparse/Makefile.in b/plparse/Makefile.in
+index e0db38f..7d7179c 100644
+--- a/plparse/Makefile.in
++++ b/plparse/Makefile.in
+@@ -34,7 +34,7 @@ PRE_UNINSTALL = :
+ POST_UNINSTALL = :
+ build_triplet = @build@
+ host_triplet = @host@
+-noinst_PROGRAMS = test-parser$(EXEEXT) disc-test$(EXEEXT)
++noinst_PROGRAMS = 
+ subdir = plparse
+ DIST_COMMON = $(plparserinclude_HEADERS) $(srcdir)/Makefile.am \
+ 	$(srcdir)/Makefile.in $(srcdir)/totem-pl-parser-features.h.in
+@@ -98,18 +98,6 @@ libtotem_plparser_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+ 	$(libtotem_plparser_la_CFLAGS) $(CFLAGS) \
+ 	$(libtotem_plparser_la_LDFLAGS) $(LDFLAGS) -o $@
+ PROGRAMS = $(noinst_PROGRAMS)
+-am_disc_test_OBJECTS = disc_test-disc-test.$(OBJEXT)
+-disc_test_OBJECTS = $(am_disc_test_OBJECTS)
+-disc_test_DEPENDENCIES = libtotem-plparser.la $(am__DEPENDENCIES_1)
+-disc_test_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(disc_test_CFLAGS) \
+-	$(CFLAGS) $(disc_test_LDFLAGS) $(LDFLAGS) -o $@
+-am_test_parser_OBJECTS = test_parser-test-parser.$(OBJEXT)
+-test_parser_OBJECTS = $(am_test_parser_OBJECTS)
+-test_parser_DEPENDENCIES = $(am__DEPENDENCIES_1) libtotem-plparser.la
+-test_parser_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
+-	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(test_parser_CFLAGS) \
+-	$(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+ DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
+ depcomp = $(SHELL) $(top_srcdir)/depcomp
+ am__depfiles_maybe = depfiles
+@@ -123,11 +111,9 @@ LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+ 	--mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) \
+ 	$(LDFLAGS) -o $@
+ SOURCES = $(libtotem_plparser_mini_la_SOURCES) \
+-	$(libtotem_plparser_la_SOURCES) $(disc_test_SOURCES) \
+-	$(test_parser_SOURCES)
++	$(libtotem_plparser_la_SOURCES)
+ DIST_SOURCES = $(libtotem_plparser_mini_la_SOURCES) \
+-	$(libtotem_plparser_la_SOURCES) $(disc_test_SOURCES) \
+-	$(test_parser_SOURCES)
++	$(libtotem_plparser_la_SOURCES)
+ plparserincludeHEADERS_INSTALL = $(INSTALL_HEADER)
+ HEADERS = $(plparserinclude_HEADERS)
+ ETAGS = etags
+@@ -308,44 +294,6 @@ target_alias = @target_alias@
+ top_build_prefix = @top_build_prefix@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-test_parser_SOURCES = test-parser.c
+-test_parser_CPPFLAGS = \
+-	-I$(top_srcdir)			\
+-	-I$(top_srcdir)/lib		\
+-	-I$(top_builddir)/plparse	\
+-	-DGNOMELOCALEDIR=\""$(datadir)/locale"\"\
+-	$(DISABLE_DEPRECATED)		\
+-	$(AM_CPPFLAGS)
+-
+-test_parser_CFLAGS = \
+-	$(TOTEM_PLPARSER_CFLAGS)\
+-	$(HAL_CFLAGS)		\
+-	$(DBUS_CFLAGS)		\
+-	$(WARN_CFLAGS)		\
+-	$(AM_CFLAGS)
+-
+-test_parser_LDADD = \
+-	$(TOTEM_PLPARSER_LIBS) \
+-	libtotem-plparser.la
+-
+-disc_test_SOURCES = \
+-	disc-test.c
+-
+-disc_test_CPPFLAGS = \
+-	$(common_defines)	\
+-	$(AM_CPPFLAGS)
+-
+-disc_test_CFLAGS = \
+-	$(WARN_CFLAGS)		\
+-	$(TOTEM_PLPARSER_CFLAGS)\
+-	$(AM_CFLAGS)
+-
+-disc_test_LDFLAGS = \
+-	$(AM_LDFLAGS)
+-
+-disc_test_LDADD = \
+-	libtotem-plparser.la	\
+-	$(TOTEM_PLPARSER_LIBS)
+ 
+ lib_LTLIBRARIES = libtotem-plparser.la libtotem-plparser-mini.la
+ MARSHALFILES = totemplparser-marshal.c totemplparser-marshal.h
+@@ -553,12 +501,6 @@ clean-noinstPROGRAMS:
+ 	  echo " rm -f $$p $$f"; \
+ 	  rm -f $$p $$f ; \
+ 	done
+-disc-test$(EXEEXT): $(disc_test_OBJECTS) $(disc_test_DEPENDENCIES) 
+-	@rm -f disc-test$(EXEEXT)
+-	$(disc_test_LINK) $(disc_test_OBJECTS) $(disc_test_LDADD) $(LIBS)
+-test-parser$(EXEEXT): $(test_parser_OBJECTS) $(test_parser_DEPENDENCIES) 
+-	@rm -f test-parser$(EXEEXT)
+-	$(test_parser_LINK) $(test_parser_OBJECTS) $(test_parser_LDADD) $(LIBS)
+ 
+ mostlyclean-compile:
+ 	-rm -f *.$(OBJEXT)
+@@ -566,7 +508,6 @@ mostlyclean-compile:
+ distclean-compile:
+ 	-rm -f *.tab.c
+ 
+-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/disc_test-disc-test.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libtotem_plparser_la-totem-disc.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libtotem_plparser_la-totem-pl-parser-builtins.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libtotem_plparser_la-totem-pl-parser-lines.Plo@am__quote@
+@@ -592,7 +533,6 @@ distclean-compile:
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libtotem_plparser_mini_la-totem-pl-parser-wm.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libtotem_plparser_mini_la-totem-pl-parser-xspf.Plo@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libtotem_plparser_mini_la-totem-pl-parser.Plo@am__quote@
+-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/test_parser-test-parser.Po@am__quote@
+ 
+ .c.o:
+ @am__fastdepCC_TRUE@	depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
+@@ -793,34 +733,6 @@ libtotem_plparser_la-xmllexer.lo: xmllexer.c
+ @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+ @am__fastdepCC_FALSE@	$(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libtotem_plparser_la_CPPFLAGS) $(CPPFLAGS) $(libtotem_plparser_la_CFLAGS) $(CFLAGS) -c -o libtotem_plparser_la-xmllexer.lo `test -f 'xmllexer.c' || echo '$(srcdir)/'`xmllexer.c
+ 
+-disc_test-disc-test.o: disc-test.c
+-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(disc_test_CPPFLAGS) $(CPPFLAGS) $(disc_test_CFLAGS) $(CFLAGS) -MT disc_test-disc-test.o -MD -MP -MF $(DEPDIR)/disc_test-disc-test.Tpo -c -o disc_test-disc-test.o `test -f 'disc-test.c' || echo '$(srcdir)/'`disc-test.c
+-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/disc_test-disc-test.Tpo $(DEPDIR)/disc_test-disc-test.Po
+-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='disc-test.c' object='disc_test-disc-test.o' libtool=no @AMDEPBACKSLASH@
+-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(disc_test_CPPFLAGS) $(CPPFLAGS) $(disc_test_CFLAGS) $(CFLAGS) -c -o disc_test-disc-test.o `test -f 'disc-test.c' || echo '$(srcdir)/'`disc-test.c
+-
+-disc_test-disc-test.obj: disc-test.c
+-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(disc_test_CPPFLAGS) $(CPPFLAGS) $(disc_test_CFLAGS) $(CFLAGS) -MT disc_test-disc-test.obj -MD -MP -MF $(DEPDIR)/disc_test-disc-test.Tpo -c -o disc_test-disc-test.obj `if test -f 'disc-test.c'; then $(CYGPATH_W) 'disc-test.c'; else $(CYGPATH_W) '$(srcdir)/disc-test.c'; fi`
+-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/disc_test-disc-test.Tpo $(DEPDIR)/disc_test-disc-test.Po
+-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='disc-test.c' object='disc_test-disc-test.obj' libtool=no @AMDEPBACKSLASH@
+-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(disc_test_CPPFLAGS) $(CPPFLAGS) $(disc_test_CFLAGS) $(CFLAGS) -c -o disc_test-disc-test.obj `if test -f 'disc-test.c'; then $(CYGPATH_W) 'disc-test.c'; else $(CYGPATH_W) '$(srcdir)/disc-test.c'; fi`
+-
+-test_parser-test-parser.o: test-parser.c
+-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_parser_CPPFLAGS) $(CPPFLAGS) $(test_parser_CFLAGS) $(CFLAGS) -MT test_parser-test-parser.o -MD -MP -MF $(DEPDIR)/test_parser-test-parser.Tpo -c -o test_parser-test-parser.o `test -f 'test-parser.c' || echo '$(srcdir)/'`test-parser.c
+-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/test_parser-test-parser.Tpo $(DEPDIR)/test_parser-test-parser.Po
+-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test-parser.c' object='test_parser-test-parser.o' libtool=no @AMDEPBACKSLASH@
+-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_parser_CPPFLAGS) $(CPPFLAGS) $(test_parser_CFLAGS) $(CFLAGS) -c -o test_parser-test-parser.o `test -f 'test-parser.c' || echo '$(srcdir)/'`test-parser.c
+-
+-test_parser-test-parser.obj: test-parser.c
+-@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_parser_CPPFLAGS) $(CPPFLAGS) $(test_parser_CFLAGS) $(CFLAGS) -MT test_parser-test-parser.obj -MD -MP -MF $(DEPDIR)/test_parser-test-parser.Tpo -c -o test_parser-test-parser.obj `if test -f 'test-parser.c'; then $(CYGPATH_W) 'test-parser.c'; else $(CYGPATH_W) '$(srcdir)/test-parser.c'; fi`
+-@am__fastdepCC_TRUE@	mv -f $(DEPDIR)/test_parser-test-parser.Tpo $(DEPDIR)/test_parser-test-parser.Po
+-@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='test-parser.c' object='test_parser-test-parser.obj' libtool=no @AMDEPBACKSLASH@
+-@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+-@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(test_parser_CPPFLAGS) $(CPPFLAGS) $(test_parser_CFLAGS) $(CFLAGS) -c -o test_parser-test-parser.obj `if test -f 'test-parser.c'; then $(CYGPATH_W) 'test-parser.c'; else $(CYGPATH_W) '$(srcdir)/test-parser.c'; fi`
+-
+ mostlyclean-libtool:
+ 	-rm -f *.lo
+ 

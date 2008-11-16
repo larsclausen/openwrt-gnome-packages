@@ -1,0 +1,109 @@
+diff --git a/configure b/configure
+index 14e9bd6..e69d797 100755
+--- a/configure
++++ b/configure
+@@ -23123,12 +23123,12 @@ if test -n "$TOTEM_PLPARSER_CFLAGS"; then
+     pkg_cv_TOTEM_PLPARSER_CFLAGS="$TOTEM_PLPARSER_CFLAGS"
+  elif test -n "$PKG_CONFIG"; then
+     if test -n "$PKG_CONFIG" && \
+-    { ($as_echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0\"") >&5
+-  ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0") 2>&5
++    { ($as_echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0\"") >&5
++  ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0") 2>&5
+   ac_status=$?
+   $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+   (exit $ac_status); }; then
+-  pkg_cv_TOTEM_PLPARSER_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0" 2>/dev/null`
++  pkg_cv_TOTEM_PLPARSER_CFLAGS=`$PKG_CONFIG --cflags "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0" 2>/dev/null`
+ else
+   pkg_failed=yes
+ fi
+@@ -23139,12 +23139,12 @@ if test -n "$TOTEM_PLPARSER_LIBS"; then
+     pkg_cv_TOTEM_PLPARSER_LIBS="$TOTEM_PLPARSER_LIBS"
+  elif test -n "$PKG_CONFIG"; then
+     if test -n "$PKG_CONFIG" && \
+-    { ($as_echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0\"") >&5
+-  ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0") 2>&5
++    { ($as_echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"glib-2.0 >= \$GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0\"") >&5
++  ($PKG_CONFIG --exists --print-errors "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0") 2>&5
+   ac_status=$?
+   $as_echo "$as_me:$LINENO: \$? = $ac_status" >&5
+   (exit $ac_status); }; then
+-  pkg_cv_TOTEM_PLPARSER_LIBS=`$PKG_CONFIG --libs "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0" 2>/dev/null`
++  pkg_cv_TOTEM_PLPARSER_LIBS=`$PKG_CONFIG --libs "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0" 2>/dev/null`
+ else
+   pkg_failed=yes
+ fi
+@@ -23162,14 +23162,14 @@ else
+         _pkg_short_errors_supported=no
+ fi
+         if test $_pkg_short_errors_supported = yes; then
+-	        TOTEM_PLPARSER_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0" 2>&1`
++	        TOTEM_PLPARSER_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0" 2>&1`
+         else
+-	        TOTEM_PLPARSER_PKG_ERRORS=`$PKG_CONFIG --print-errors "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0" 2>&1`
++	        TOTEM_PLPARSER_PKG_ERRORS=`$PKG_CONFIG --print-errors "glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0" 2>&1`
+         fi
+ 	# Put the nasty error message in config.log where it belongs
+ 	echo "$TOTEM_PLPARSER_PKG_ERRORS" >&5
+ 
+-	{ { $as_echo "$as_me:$LINENO: error: Package requirements (glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0) were not met:
++	{ { $as_echo "$as_me:$LINENO: error: Package requirements (glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0) were not met:
+ 
+ $TOTEM_PLPARSER_PKG_ERRORS
+ 
+@@ -23180,7 +23180,7 @@ Alternatively, you may set the environment variables TOTEM_PLPARSER_CFLAGS
+ and TOTEM_PLPARSER_LIBS to avoid the need to call pkg-config.
+ See the pkg-config man page for more details.
+ " >&5
+-$as_echo "$as_me: error: Package requirements (glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 camel-1.2 gio-2.0) were not met:
++$as_echo "$as_me: error: Package requirements (glib-2.0 >= $GLIB_REQS gtk+-2.0 libxml-2.0 gio-2.0) were not met:
+ 
+ $TOTEM_PLPARSER_PKG_ERRORS
+ 
+diff --git a/plparse/totem-pl-parser.c b/plparse/totem-pl-parser.c
+index 56f636b..9d10b2e 100644
+--- a/plparse/totem-pl-parser.c
++++ b/plparse/totem-pl-parser.c
+@@ -104,7 +104,6 @@
+ #ifndef TOTEM_PL_PARSER_MINI
+ #include <gobject/gvaluecollector.h>
+ #include <gtk/gtk.h>
+-#include <camel/camel-mime-utils.h>
+ 
+ #include "totem-pl-parser.h"
+ #include "totemplparser-marshal.h"
+@@ -1781,8 +1780,7 @@ totem_pl_parser_parse_date (const char *date_str, gboolean debug)
+ 	}
+ 	D(g_message ("Failed to parse duration '%s' using the ISO8601 parser", date_str));
+ 
+-	/* Fall back to RFC 2822 date parsing */
+-	return camel_header_decode_date (date_str, NULL);
++	return 0;
+ }
+ 
+ #endif /* !TOTEM_PL_PARSER_MINI */
+diff --git a/totem-plparser-uninstalled.pc.in b/totem-plparser-uninstalled.pc.in
+index 3a732f2..f0b3172 100644
+--- a/totem-plparser-uninstalled.pc.in
++++ b/totem-plparser-uninstalled.pc.in
+@@ -9,6 +9,6 @@ Name: totem-plparser
+ Description: Totem Playlist Parser library
+ Version: @VERSION@
+ Requires: gtk+-2.0
+-Requires.private: libxml-2.0 camel-1.2
++Requires.private: libxml-2.0
+ Libs: ${pc_top_builddir}/${pcfiledir}/plparse/libtotem-plparser.la
+ Cflags: -I${pc_top_builddir}/${pcfiledir}/plparse
+diff --git a/totem-plparser.pc.in b/totem-plparser.pc.in
+index e4a98a2..69546cc 100644
+--- a/totem-plparser.pc.in
++++ b/totem-plparser.pc.in
+@@ -9,6 +9,6 @@ Name: totem-plparser
+ Description: Totem Playlist Parser library
+ Version: @VERSION@
+ Requires: gtk+-2.0
+-Requires.private: libxml-2.0 camel-1.2
++Requires.private: libxml-2.0
+ Libs: -L${libdir} -ltotem-plparser
+ Cflags: -I${includedir}/totem-pl-parser/1/plparser

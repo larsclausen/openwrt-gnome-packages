@@ -1,0 +1,11 @@
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -273,7 +273,7 @@ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-SUBDIRS = bindings gedit pixmaps po help data plugins docs
++SUBDIRS = bindings gedit pixmaps po data plugins docs
+ distuninstallcheck_listfiles = find . -type f -print | grep -v scrollkeeper
+ EXTRA_DIST = \
+ 	BUGS			\

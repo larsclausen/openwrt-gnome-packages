@@ -1,0 +1,13 @@
+diff --git a/Makefile.in b/Makefile.in
+index bd73e9e..996fc77 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -250,7 +250,7 @@ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-SUBDIRS = src po help
++SUBDIRS = src po
+ desktopdir = $(datadir)/applications
+ desktop_in_files = gnome-terminal.desktop.in
+ desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
