@@ -1,0 +1,10 @@
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -290,7 +290,6 @@ SUBDIRS = \
+ 	libgnome-desktop 	\
+ 	gnome-about 		\
+ 	pixmaps			\
+-	desktop-docs		\
+ 	docs			\
+ 	man
+ 
