@@ -32,11 +32,15 @@ define Package/gnome-panel
   CATEGORY:=Xorg
   SUBMENU:=app
   TITLE:=gnome-panel
-  DEPENDS:=+libgnome-menu
+  DEPENDS:=+libgnome-menu +libgnome-desktop +libgweather +orbit2 +pango +gtk2 \
+  +libdbus-glib +libglade +libgconf2 +libbonoboui +libwnck
 endef
 
 define Build/Configure
 	$(call Build/Configure/Default, \
+		--disable-eds \
+		--disable-polkit \
+		--disable-network-manager \
 	)
 endef
 
@@ -46,9 +50,14 @@ define Package/gnome-panel/install
 		$(PKG_INSTALL_DIR)/usr/lib/*.{so*,a} \
 		$(1)/usr/lib/
 
+	$(INSTALL_DIR) $(1)/usr/lib/bonobo/servers
+	$(INSTALL_DATA) \
+		$(PKG_INSTALL_DIR)/usr/lib/bonobo/servers/* \
+		$(1)/usr/lib/bonobo/servers/
+
 	$(INSTALL_DIR) $(1)/usr/bin/
 	$(INSTALL_BIN) \
-		$(PKG_INSTALL_DIR)/usr/bin/* \
+		$(PKG_INSTALL_DIR)/usr/bin/gnome-panel \
 		$(1)/usr/bin/
 
 	$(INSTALL_DIR) $(1)/usr/share/icons/hicolor/48x48/apps
@@ -60,6 +69,19 @@ define Package/gnome-panel/install
 	$(INSTALL_DATA) \
 		$(PKG_INSTALL_DIR)/usr/share/applications/* \
 		$(1)/usr/share/applications
+
+	$(INSTALL_DIR) $(1)/usr/share/gnome-2.0/ui
+	$(INSTALL_DATA) \
+		$(PKG_INSTALL_DIR)/usr/share/gnome-2.0/ui/* \
+		$(1)/usr/share/gnome-2.0/ui/
+
+	$(INSTALL_DIR) $(1)/usr/share/gnome-panel/{glade,pixmaps}
+	$(INSTALL_DATA) \
+		$(PKG_INSTALL_DIR)/usr/share/gnome-panel/glade/* \
+		$(1)/usr/share/gnome-panel/glade/
+	$(INSTALL_DATA) \
+		$(PKG_INSTALL_DIR)/usr/share/gnome-panel/pixmaps/* \
+		$(1)/usr/share/gnome-panel/pixmaps/
 endef
 
 $(eval $(call BuildPackage,gnome-panel))

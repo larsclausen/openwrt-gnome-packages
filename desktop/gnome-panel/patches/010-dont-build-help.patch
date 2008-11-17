@@ -1,0 +1,12 @@
+diff --git a/Makefile.in b/Makefile.in
+index 3570a9b..ce04a3d 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -284,7 +284,6 @@ SUBDIRS = \
+ 	gnome-panel		\
+ 	libpanel-applet		\
+ 	applets			\
+-	help			\
+ 	doc			\
+ 	man
+ 
