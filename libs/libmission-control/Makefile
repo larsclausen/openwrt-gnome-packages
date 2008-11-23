@@ -13,16 +13,18 @@ include $(INCLUDE_DIR)/package.mk
 
 PKG_INSTALL:=1
 
-EXTRA_CFLAGS+=-I$(STAGING_DIR)/usr/lib/libintl/include
+TARGET_CFLAGS+= \
+	-I$(STAGING_DIR)/usr/lib/libintl/include
 
-EXTRA_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib \
-			   -L$(STAGING_DIR)/usr/lib/libintl/lib/
+TARGET_LDFLAGS+= \
+	-Wl,-rpath-link=$(STAGING_DIR)/usr/lib \
+	-L$(STAGING_DIR)/usr/lib/libintl/lib/
 
-define Package/libmisson-control
+define Package/libmission-control
   SECTION:=xorg-libs
   CATEGORY:=Xorg
   SUBMENU:=libraries
-  TITLE:=libmisson-control
+  TITLE:=libmission-control
   URL:=http://www.jamesh.id.au/software/libmisson-control/
   DEPENDS:=+libtelepathy
 endef
@@ -72,7 +74,7 @@ define Build/InstallDev
 		$(1)/usr/include/mission-control/_gen/
 endef
 
-define Package/libmisson-control/install
+define Package/libmission-control/install
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_DATA) \
 		$(PKG_INSTALL_DIR)/usr/bin/* \
@@ -94,4 +96,4 @@ define Package/libmisson-control/install
 		$(1)/usr/share/dbus-1/services/
 endef
 
-$(eval $(call BuildPackage,libmisson-control))
+$(eval $(call BuildPackage,libmission-control))
