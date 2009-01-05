@@ -38,7 +38,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/libgnomeui-2.0/libgnomeui}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnomeui-2.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -57,7 +57,7 @@ endef
 
 define Package/libgnomeui/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnomeui-2.so* \
 		$(1)/usr/lib/
 

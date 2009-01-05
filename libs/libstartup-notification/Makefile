@@ -39,7 +39,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/startup-notification-1.0/libsn}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libstartup-notification-1.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -54,7 +54,7 @@ endef
 
 define Package/libstartup-notification/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libstartup-notification-1.so* \
 		$(1)/usr/lib/
 endef

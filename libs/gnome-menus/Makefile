@@ -38,7 +38,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/gnome-menus}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnome-menu.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -53,7 +53,7 @@ endef
 
 define Package/libgnome-menu/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnome-menu.so* \
 		$(1)/usr/lib/
 endef

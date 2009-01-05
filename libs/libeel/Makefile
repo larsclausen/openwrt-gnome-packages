@@ -35,7 +35,7 @@ define Build/InstallDev
 		$(PKG_INSTALL_DIR)/usr/include/eel-2/eel/* \
 		$(1)/usr/include/eel-2/eel/
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libeel-2.{so*,a,la} \
 		$(1)/usr/lib/
 	$(INSTALL_DATA) \
@@ -45,7 +45,7 @@ endef
 
 define Package/libeel/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libeel-2.so* \
 		$(1)/usr/lib/
 endef

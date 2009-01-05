@@ -63,7 +63,7 @@ endef
 
 define Package/libempathy/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libempathy.so* \
 		$(1)/usr/lib/
 
@@ -80,7 +80,7 @@ endef
 
 define Package/libempathy-gtk/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libempathy-gtk.so* \
 		$(1)/usr/lib/
 
@@ -95,7 +95,7 @@ define Package/libempathy-gtk/install
 		$(PKG_INSTALL_DIR)/usr/share/empathy/icons/* \
 		$(1)/usr/share/empathy/icons/
 
-    $(INSTALL_DIR) $(1)/usr/share/icons
+	$(INSTALL_DIR) $(1)/usr/share/icons
 	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/share/icons/* \
 		$(1)/usr/share/icons/

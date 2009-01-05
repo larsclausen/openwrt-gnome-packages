@@ -25,7 +25,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/telepathy-1.0/libtelepathy}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libtelepathy.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -40,7 +40,7 @@ endef
 
 define Package/libtelepathy/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libtelepathy.so* \
 		$(1)/usr/lib/
 endef

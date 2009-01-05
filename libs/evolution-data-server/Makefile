@@ -145,7 +145,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/*.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -166,7 +166,7 @@ define Package/evolution-data-server/install
 		$(1)/usr/lib/evolution-data-server-1.2/camel-providers
 
 	$(INSTALL_DIR) $(1)/usr/lib/evolution-data-server-1.2/extensions
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/evolution-data-server-1.2/extensions/*.so* \
 		$(1)/usr/lib/evolution-data-server-1.2/extensions
 
@@ -196,7 +196,7 @@ endef
 
 define Package/evolution-data-server/install/Default
 	$(INSTALL_DIR) $(2)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/$(1).so* \
 		$(2)/usr/lib
 endef
@@ -257,5 +257,3 @@ $(eval $(call BuildPackage,libedataserverui))
 $(eval $(call BuildPackage,libegroupwise))
 $(eval $(call BuildPackage,libgdata))
 $(eval $(call BuildPackage,libgdata-google))
-
-

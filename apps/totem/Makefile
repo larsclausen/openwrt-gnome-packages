@@ -61,7 +61,7 @@ define Package/totem/install
 		$(1)/etc/gconf/schemas/
 
 	$(INSTALL_DIR) $(1)/usr/lib/
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/*.so* \
 		$(1)/usr/lib/
 

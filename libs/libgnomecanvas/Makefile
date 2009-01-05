@@ -38,7 +38,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/libgnomecanvas-2.0/libgnomecanvas}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnomecanvas-2.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -53,7 +53,7 @@ endef
 
 define Package/libgnomecanvas/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnomecanvas-2.so* \
 		$(1)/usr/lib/
 

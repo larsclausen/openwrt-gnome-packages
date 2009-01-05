@@ -30,7 +30,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/libgnomecups-1/libgnomecups}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnomecups-1.0.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -45,7 +45,7 @@ endef
 
 define Package/libgnomecups/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnomecups-1.0.so* \
 		$(1)/usr/lib/
 endef

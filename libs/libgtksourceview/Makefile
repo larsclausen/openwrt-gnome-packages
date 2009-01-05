@@ -32,7 +32,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/gtksourceview-2.0/gtksourceview}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgtksourceview-2.0.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -47,7 +47,7 @@ endef
 
 define Package/libgtksourceview/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgtksourceview-2.0.so* \
 		$(1)/usr/lib/
 

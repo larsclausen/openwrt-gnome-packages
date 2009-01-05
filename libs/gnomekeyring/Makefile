@@ -58,11 +58,11 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnome-keyring.{so*,la,a} \
 		$(1)/usr/lib/
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgp11.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -83,7 +83,7 @@ endef
 
 define Package/libgnome-keyring/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnome-keyring.so* \
 		$(1)/usr/lib/
 
@@ -100,7 +100,7 @@ endef
 
 define Package/libgp11/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgp11.so* \
 		$(1)/usr/lib/
 endef

@@ -56,7 +56,7 @@ define Package/nautilus/install
 		$(1)/usr/bin/
 
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_BIN) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/*.so* \
 		$(1)/usr/lib/
 

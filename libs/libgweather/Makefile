@@ -37,7 +37,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/libgweather}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgweather.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -52,7 +52,7 @@ endef
 
 define Package/libgweather/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgweather.so* \
 		$(1)/usr/lib/
 

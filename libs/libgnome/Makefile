@@ -38,7 +38,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/libgnome-2.0/libgnome}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnome-2.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -58,7 +58,7 @@ define Package/libgnome/install
 		$(1)/usr/bin
 
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libgnome-2.so* \
 		$(1)/usr/lib/
 
@@ -91,5 +91,3 @@ define Package/libgnome/install
 endef
 
 $(eval $(call BuildPackage,libgnome))
-
-

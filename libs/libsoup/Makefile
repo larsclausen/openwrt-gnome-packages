@@ -32,7 +32,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/libsoup-2.4/libsoup}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libsoup-2.4.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -47,7 +47,7 @@ endef
 
 define Package/libsoup/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libsoup-2.4.so* \
 		$(1)/usr/lib/
 endef

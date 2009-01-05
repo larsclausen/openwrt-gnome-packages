@@ -38,7 +38,7 @@ endef
 define Build/InstallDev
 	$(INSTALL_DIR) $(1)/usr/{lib/pkgconfig,include/totem-pl-parser/1/plparser}
 
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libtotem-plparser{,-mini}.{so*,la,a} \
 		$(1)/usr/lib/
 
@@ -53,7 +53,7 @@ endef
 
 define Package/libtotem-plparser/install
 	$(INSTALL_DIR) $(1)/usr/lib
-	$(INSTALL_DATA) \
+	$(CP) \
 		$(PKG_INSTALL_DIR)/usr/lib/libtotem-plparser{,-mini}.so* \
 		$(1)/usr/lib/
 endef
