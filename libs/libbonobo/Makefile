@@ -22,7 +22,7 @@ EXTRA_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib \
 define Package/libbonobo
   SECTION:=xorg-framework
   CATEGORY:=Xorg
-  SUBMENU:=lib
+  SUBMENU:=libraries
   TITLE:=libbonobo
   URL:=http://libbonobo.sourceforge.net/
   DEPENDS:=+libpopt +orbit2

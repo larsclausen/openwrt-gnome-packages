@@ -22,7 +22,7 @@ EXTRA_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib \
 define Package/libbonoboui
   SECTION:=xorg-framework
   CATEGORY:=Xorg
-  SUBMENU:=lib
+  SUBMENU:=libraries
   TITLE:=libbonoboui
   URL:=http://libbonoboui.sourceforge.net/
   DEPENDS:=+libgnomecanvas +libbonobo +libgnome +libxml2 +libgconf2 +gtk2 \

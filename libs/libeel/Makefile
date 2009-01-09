@@ -22,7 +22,7 @@ EXTRA_LDFLAGS+=-Wl,-rpath-link=$(STAGING_DIR)/usr/lib \
 define Package/libeel
   SECTION:=xorg-framework
   CATEGORY:=Xorg
-  SUBMENU:=lib
+  SUBMENU:=libraries
   TITLE:=libeel
   URL:=http://libeel.sourceforge.net/
   DEPENDS:=+libgconf2 +gtk2 +glib2 +libglade +libgnome +libgnomeui \
