@@ -26,8 +26,8 @@ define Package/libgnomeui
   SUBMENU:=libraries
   TITLE:=libgnomeui
   URL:=http://www.jamesh.id.au/software/libgnomeui/
-  DEPENDS:=+glib2 +libX11 +libSM +libxml2 +libgnome +gnome-vfs \
-  +libgnomecanvas +libbonoboui +libgnome-keyring
+  DEPENDS:=+glib2 +libX11 +libSM +libICE +libxml2 +libgnome +gnome-vfs \
+  +libgnomecanvas +libbonoboui +libgnome-keyring +libglade
 endef
 
 define Build/Configure

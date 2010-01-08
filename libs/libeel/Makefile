@@ -25,7 +25,7 @@ define Package/libeel
   SUBMENU:=libraries
   TITLE:=libeel
   URL:=http://libeel.sourceforge.net/
-  DEPENDS:=+libgconf2 +gtk2 +glib2 +libglade +libgnome +libgnomeui \
+  DEPENDS:=+libgconf +gtk2 +glib2 +libglade +libgnome +libgnomeui \
   +libgnome-desktop +libxml2 +libstartup-notification
 endef
 

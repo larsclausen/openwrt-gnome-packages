@@ -26,7 +26,7 @@ define Package/libgnome-keyring
   SUBMENU:=libraries
   TITLE:=gnome-keyring
   URL:=http://www.jamesh.id.au/software/gnome-keyring/
-  DEPENDS:=+libtasn1 +glib2 +gconf2 +libgp11
+  DEPENDS:=+libtasn1 +glib2 +gconf +libgp11 +libgcrypt
 endef
 
 define Package/libgp11

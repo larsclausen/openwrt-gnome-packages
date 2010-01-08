@@ -26,7 +26,8 @@ define Package/libgnomeprint
   SUBMENU:=libraries
   TITLE:=libgnomeprint
   URL:=http://www.jamesh.id.au/software/libgnomeprint/
-  DEPENDS:=+glib2 +gnome-vfs +libgconf2 +libbonobo
+  DEPENDS:=+glib2 +libart +pango +libxml2 +fontconfig +libfreetype \
+           +libgnomecups
 endef
 
 define Build/Configure

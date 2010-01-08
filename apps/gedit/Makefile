@@ -15,6 +15,7 @@ PKG_RELEASE:=1
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@GNOME/$(PKG_NAME)/2.24
 PKG_MD5SUM:=
+PKG_BUILD_DEPENDS:=gnome-doc-utils
 
 include $(INCLUDE_DIR)/package.mk
 
@@ -32,7 +33,7 @@ define Package/gedit
   CATEGORY:=Xorg
   SUBMENU:=app
   TITLE:=gedit
-  DEPENDS:=+libxml2 +libSM +glib2 +gtk2 +libgtksourceview +libgconf2
+  DEPENDS:=+libxml2 +libSM +glib2 +gtk2 +libgtksourceview +libgconf
 endef
 
 define Build/Configure

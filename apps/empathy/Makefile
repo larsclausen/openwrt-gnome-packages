@@ -15,10 +15,11 @@ PKG_RELEASE:=1
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=@GNOME/$(PKG_NAME)/2.24
 PKG_MD5SUM:=
+PKG_BUILD_DEPENDS:=gnome-doc-utils
+PKG_INSTALL=1
 
 include $(INCLUDE_DIR)/package.mk
 
-PKG_INSTALL=1
 
 TARGET_CFLAGS+= \
 	-I$(STAGING_DIR)/usr/lib/libintl/include/
@@ -38,7 +39,7 @@ define Package/libempathy-gtk
   SECTION:=libs
   CATEGORY:=Libraries
   TITLE:=libempathy
-  DEPENDS:=+glib2 +libempathy +gtk2 +libglade +libgconf2 +libmission-control \
+  DEPENDS:=+glib2 +libempathy +gtk2 +libglade +libgconf +libmission-control \
   +libtelepathy-glib
 endef
 

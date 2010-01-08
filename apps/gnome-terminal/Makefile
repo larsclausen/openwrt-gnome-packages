@@ -32,7 +32,7 @@ define Package/gnome-terminal
   CATEGORY:=Xorg
   SUBMENU:=app
   TITLE:=gnome-terminal
-  DEPENDS:=+glib2 +libgconf2 +gtk2 +libgnomeui +libgnome +vte \
+  DEPENDS:=+glib2 +libgconf +gtk2 +libgnomeui +libgnome +vte \
   +libstartup-notification
 endef
 

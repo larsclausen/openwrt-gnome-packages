@@ -1,17 +1,17 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=libsoup
-PKG_VERSION:=2.24.1
+PKG_VERSION:=2.26.0
 PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
-PKG_SOURCE_URL:=@GNOME/$(PKG_NAME)/2.24
+PKG_SOURCE_URL:=@GNOME/$(PKG_NAME)/2.26
 PKG_MD5SUM:=
+
 PKG_FIXUP:=libtool
+PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk
-
-PKG_INSTALL:=1
 
 define Package/libsoup
   SECTION:=libs
@@ -53,5 +53,3 @@ define Package/libsoup/install
 endef
 
 $(eval $(call BuildPackage,libsoup))
-
-

@@ -29,7 +29,7 @@ define Package/evolution-data-server
   URL:=http://www.jamesh.id.au/software/evolution-data-server/
   DEPENDS:=+libsqlite3 +glib2 +libgnome +gnome-vfs +libbonobo \
   +libxml2 +libsoup +libcamel +libdb +libebook +libecal +libedata-book \
-  +libedata-cal +libedataserver +libegroupwise +libgconf2 +libgdata \
+  +libedata-cal +libedataserver +libegroupwise +libgconf +libgdata \
   +libgdata-google +zlib +libxml2 +orbit2 +libpopt
 endef
 
@@ -51,7 +51,7 @@ define Package/libcamel
   SECTION:=libs
   CATEGORY:=libraries
   TITLE:=libcamel
-  DEPENDS:=+glib2 +libedataserver +libgconf2 +gnome-vfs +zlib
+  DEPENDS:=+glib2 +libedataserver +libgconf +gnome-vfs +zlib
 endef
 
 define Package/libebackend
@@ -94,7 +94,7 @@ define Package/libedataserver
   SECTION:=libs
   CATEGORY:=libraries
   TITLE:=libedataserver
-  DEPENDS:=+glib2 +libgconf2 +libbonobo +libxml2 +libsoup
+  DEPENDS:=+glib2 +libgconf +libbonobo +libxml2 +libsoup
 endef
 
 define Package/libedataserverui
